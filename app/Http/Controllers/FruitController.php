@@ -35,8 +35,10 @@ class FruitController extends Controller
         }else
         {
             $objeto = json_decode($response);
-            // print_r($objeto);
+            // $allData=$objeto->data;
 
+            // print_r($objeto);
+            // var_dump($objeto);
             foreach($objeto as $fruit)
             {
                 
@@ -48,17 +50,23 @@ class FruitController extends Controller
                     $nuevoFruit->name=$fruit->name;
                     $nuevoFruit->family= $fruit->family;
                     $nuevoFruit->order= $fruit->order;
-                    foreach ($fruit->nutritions as $nutrition){
-                        var_dump($fruit->nutritions);
-                        $nuevoFruit->carbohydrates= floatval($nutrition->carbohydrates);
-                        $nuevoFruit->protein=$nutrition->protein;
-                        $nuevoFruit->fat= $nutrition->fat;
-                        $nuevoFruit->calories= $nutrition->calories;
-                        $nuevoFruit->sugar= $nutrition->sugar;
-                    }
-                $nuevoFruit->save();
+                    $nutrientes=$fruit->nutritions;
+                    $nuevoFruit->carbohydrates=$nutrientes->carbohydrates;
+                    $nuevoFruit->protein=$nutrientes->protein;
+                    $nuevoFruit->fat=$nutrientes->fat;
+                    $nuevoFruit->calories=$nutrientes->calories;
+                    $nuevoFruit->sugar=$nutrientes->sugar;
+                    $nuevoFruit->save();
+                    echo "<h3> Frutas registradas </h3>";
+
                 }
             }
         }      
+    }
+
+    public function getAllFruits(){
+        $fruits=Fruit::all();
+        
+
     }
 }
