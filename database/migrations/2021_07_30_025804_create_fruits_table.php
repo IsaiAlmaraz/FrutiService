@@ -15,7 +15,17 @@ class CreateFruitsTable extends Migration
     {
         Schema::create('fruits', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('genus');
+            $table->string('name');
+            $table->string('family');
+            $table->string('order');
+            $table->string('carbohydrates');
+            $table->string('protein');
+            $table->string('fat');
+            $table->string('calories');
+            $table->string('sugar');
+            $table->string('updated_at');
+            $table->string('created_at');
         });
     }
 
