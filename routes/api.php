@@ -21,4 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/Fruits', [FruitController::class,'getFruits'])->name("get.fruits");
+Route::get('/AllFruits', [FruitController::class,'getAllFruits'])->name("get.allfruits");
+Route::get('/FruitName/{name}', [FruitController::class,'getFruitByName'])->name("get.namefruit");
+Route::get('/FruitId/{id}', [FruitController::class,'getFruitById'])->name("get.idfruit");
 
