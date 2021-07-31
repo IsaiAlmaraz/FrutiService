@@ -28,4 +28,8 @@ Route::get('/AllFruits', [FruitController::class,'getAllFruits'])->name("get.all
 Route::get('/FruitName/{name}', [FruitController::class,'getFruitByName'])->name("get.namefruit");
 //para consultar fruta por id
 Route::get('/FruitId/{id}', [FruitController::class,'getFruitById'])->name("get.idfruit");
+//para bebidas de limón
+Route::get('/MangoDrinks', [FruitController::class,'Mango'])->name("get.Mango");
+Route::get('/SandiaDrinks', [FruitController::class,'Sandia'])->name("get.Sandia");
+Route::get('/NaranjaDrinks', [FruitController::class,'Naranja'])->name("get.Cereza");
 
